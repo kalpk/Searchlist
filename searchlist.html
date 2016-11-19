@@ -1,0 +1,64 @@
+<!Doctype HTML>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>Search Persons</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<!--<script type="text/javascript" src="jslibs/angular.js"></script>-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+	<div class="container">
+	<h1>People Search</h1>
+	<div ng-controller='demoController'>	
+		<form class="form">
+					<div class="row">
+						<div class="form-group col-sm">
+							<input type="search" class="form-control" placeholder="Search for a name" ng-model='xyz.name'/>
+						 </div>
+					</div>
+		</form>
+		<table class="table-responsive"  style="width:100%;">
+			<div class="row">
+			<thead>
+				<tr class="col-sm">
+				
+					<th class="col-sm">List of Names</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="person in persons | filter:xyz">
+					<td style="background-color:#cdcdcd; height:20px; border:2px solid #ffffff;">{{person.name}}</td>
+				</tr>
+			</tbody>
+			</div>
+		</table>
+	</div>
+	</div>
+	<script type="text/javascript">
+
+	var myApp = angular.module('myApp', []);
+		var demoController = myApp.controller('demoController', function($scope){
+			$scope.persons = [
+			                  {name: "Amitabh Bachhan"},
+			                  {name: "Kamal Hasan"},
+			                  {name: "Sudeep"},
+			                  {name: "Nana Patekar"},
+			                  {name: "Om Puri"},
+							  {name: "Andrew"},
+			                  {name: "Katerina"},
+			                  {name: "Steward"},
+			                  {name: "Nancy"},
+			                  {name: "Obrienn"},
+			                  {name: "Rockkie"}
+			                  ];
+			
+		});
+	
+	</script>
+	
+</body>
+</html>
